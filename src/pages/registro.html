@@ -89,8 +89,10 @@
             consejos de aprendizaje.
           </label>
         </div>
-        <button class="button-custom">
-          <a href="cursosNewAlumno.html"> Registrarse </a>
+        <button class="button-custom disabled-redirect">
+          <a class="d-block w-100 h-100" href="cursosNewAlumno.html">
+            Registrarse
+          </a>
         </button>
       </form>
       <div class="mt-0">
@@ -188,10 +190,10 @@
         coincidenContrasenas(pass1Input, pass2Input)
       ) {
         // Habilitar el botón de registro
-        $("button").prop("disabled", false);
+        $("button").removeClass("disabled-redirect");
       } else {
         // Deshabilitar el botón de registro
-        $("button").prop("disabled", true);
+        $("button").addClass("disabled-redirect");
       }
     }
 

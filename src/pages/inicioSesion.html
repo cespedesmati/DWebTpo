@@ -39,8 +39,10 @@
       </div>
     </header>
     <!--MAIN-->
-    <main class="container d-flex flex-column align-items-center justify-content-center">
-      <form class=" d-flex flex-column gap-3 p-4" >
+    <main
+      class="container d-flex flex-column align-items-center justify-content-center"
+    >
+      <form class="d-flex flex-column gap-3 p-4">
         <h2>Inicia sesion en tu cuenta:</h2>
         <div class="form-group">
           <label for="inputEmail">Email</label>
@@ -50,43 +52,31 @@
             id="inputEmail"
             aria-describedby="emailHelp"
           />
-          <small id="emailHelp" class="form-text text-danger" style="display: none;"
+          <small
+            id="emailHelp"
+            class="form-text text-danger"
+            style="display: none"
             >El mail debe estar en un formato valido.</small
           >
         </div>
         <div class="form-group">
           <label for="inputPass">Contraseña</label>
-          <input
-            type="password"
-            class="form-control"
-            id="inputPass"
-          />
+          <input type="password" class="form-control" id="inputPass" />
         </div>
-        <button
-         class="button-custom"
-        >
-        <a href="cursosAlumno.html" >
-          Iniciar sesion
-        </a>
+        <button class="button-custom disabled-redirect">
+          <a class="d-block w-100 h-100" href="cursosAlumno.html">
+            Iniciar Sesion
+          </a>
         </button>
       </form>
       <div class="mt-0">
-        <p
-        class="py-4 px-5 shadow-lg redirect-custom"
-        >
-        <a>
-          ¿Olvidaste tu contraseña?
-        </a>  
+        <p class="py-4 px-5 shadow-lg redirect-custom">
+          <a> ¿Olvidaste tu contraseña? </a>
         </p>
-        <div
-        class="d-flex justify-content-center align-items-center gap-2"
-        >
+        <div class="d-flex justify-content-center align-items-center gap-2">
           <p class="text-center">¿No tienes cuenta?</p>
-          <p
-            class="redirect-custom"
-          ><a href="registro.html">
-            Registrate
-          </a>
+          <p class="redirect-custom">
+            <a href="registro.html"> Registrate </a>
           </p>
         </div>
       </div>
@@ -143,26 +133,43 @@
 </html>
 <script>
   $(document).ready(function () {
-
     function validarEmail(email) {
       var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return regex.test(email);
     }
 
-    
-    $("#inputEmail, #inputPass").on("input", function () {
+    function verificarHabilitarBoton() {
       var emailInput = $("#inputEmail").val();
-      var passwordInput = $("#inputPass").val();
+      var passInput = $("#inputPass").val();
+
+      if (
+        (emailInput.trim() === "" || validarEmail(emailInput)) &&
+        passInput.trim() !== ""
+      ) {
+        // Habilitar el botón de registro
+        $("button").removeClass("disabled-redirect");
+      } else {
+        // Deshabilitar el botón de registro
+        $("button").addClass("disabled-redirect");
+      }
+    }
+
+    // campo mail
+    $("#inputEmail").on("input", function () {
+      var emailInput = $(this).val();
       var emailHelp = $("#emailHelp");
 
-      // vemos que los campos tienen datos y el mail es valido
-      if (emailInput.trim() !== "" && passwordInput.trim() !== "" && validarEmail(emailInput)) {
+      if (emailInput.trim() === "" || validarEmail(emailInput)) {
         emailHelp.hide();
-        $("button").prop("disabled", false);
       } else {
         emailHelp.show();
-        $("button").prop("disabled", true);
       }
+      verificarHabilitarBoton();
+    });
+
+    // Campo de contraseña
+    $("#inputPass").on("input", function () {
+      verificarHabilitarBoton();
     });
   });
 </script>
