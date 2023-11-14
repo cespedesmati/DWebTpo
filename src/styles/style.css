@@ -1,0 +1,90 @@
+:root {
+  --color-primary: #235D39;
+  --color-secondary: #719148;
+  --color-tertiary : #39734F;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+label {
+  font-size: 18px;
+}
+
+[class*="-heading"] {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 900;
+  color: var(--color-primary);
+  margin: 16px 0;
+  width: max-content;
+}
+
+[class*="-subheading"] {
+  font-size: 20px;
+  text-align: center;
+  font-weight: 700;
+  color: var(--color-tertiary);
+  margin: 8px 0;
+}
+
+[class*="-heading-main"] {
+  font-size: 3rem;
+  font-weight: 900;
+  color: var(--color-primary);
+  margin: 16px 0;
+  width: fit-content;
+}
+
+[class*="-subheading-main"] {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--color-tertiary);
+  margin: 8px 0;
+  text-align: start;
+}
+
+.button-custom {
+    padding: 10px;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    outline: inherit;
+    transition: background-color 0.3s ease;
+    border-radius: 4px;
+}
+
+.button-custom:hover {
+  background-color: var(--color-tertiary);
+}
+
+
+.redirect-custom {
+    color: var(--color-primary);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+
+.blog-header-logo {
+  font-size: 2.25rem;
+  font-weight: 900;
+   color:var(--color-primary)
+}
+
+.blog-header-logo span {
+  font-weight: normal;
+  color: black;
+}
+
+.blog-header-logo:hover {
+  text-decoration: none;
+}
